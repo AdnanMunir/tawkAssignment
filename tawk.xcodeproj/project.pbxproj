@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB000EE326BABA4E00343004 /* UserNoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB000EE226BABA4E00343004 /* UserNoteView.xib */; };
 		DB4D4D7826B0839900643E37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4D4D7726B0839900643E37 /* AppDelegate.swift */; };
 		DB4D4D7A26B0839900643E37 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4D4D7926B0839900643E37 /* SceneDelegate.swift */; };
 		DB4D4D7F26B0839900643E37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB4D4D7D26B0839900643E37 /* Main.storyboard */; };
@@ -58,7 +59,6 @@
 		DBC2AAC126B9B089001CCB9B /* InvertedUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC2AAC026B9B089001CCB9B /* InvertedUserModel.swift */; };
 		DBC2AAC426B9B249001CCB9B /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC2AAC326B9B249001CCB9B /* NoteTableViewCell.swift */; };
 		DBC2AAC726B9B264001CCB9B /* InvertedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC2AAC626B9B264001CCB9B /* InvertedTableViewCell.swift */; };
-		DBC2AACB26B9B3E0001CCB9B /* UserNoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBC2AACA26B9B3E0001CCB9B /* UserNoteView.xib */; };
 		DBC2AAD526B9C32B001CCB9B /* tawkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC2AAD426B9C32B001CCB9B /* tawkTests.swift */; };
 		DBC2AAE126B9C9D7001CCB9B /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC2AAE026B9C9D7001CCB9B /* UIViewController+Extension.swift */; };
 		DBC2AAE526B9CAEB001CCB9B /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC2AAE426B9CAEB001CCB9B /* UIView+Extension.swift */; };
@@ -79,6 +79,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DB000EE226BABA4E00343004 /* UserNoteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserNoteView.xib; sourceTree = "<group>"; };
 		DB4D4D7426B0839900643E37 /* tawk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tawk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB4D4D7726B0839900643E37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB4D4D7926B0839900643E37 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,7 +133,6 @@
 		DBC2AAC026B9B089001CCB9B /* InvertedUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvertedUserModel.swift; sourceTree = "<group>"; };
 		DBC2AAC326B9B249001CCB9B /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		DBC2AAC626B9B264001CCB9B /* InvertedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvertedTableViewCell.swift; sourceTree = "<group>"; };
-		DBC2AACA26B9B3E0001CCB9B /* UserNoteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserNoteView.xib; path = ../../../../../../../../../../Downloads/Changes/UserNoteView.xib; sourceTree = "<group>"; };
 		DBC2AAD226B9C32B001CCB9B /* tawkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tawkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBC2AAD426B9C32B001CCB9B /* tawkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tawkTests.swift; sourceTree = "<group>"; };
 		DBC2AAD626B9C32B001CCB9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -441,7 +441,7 @@
 		DBFD9EB126B6D6000080666E /* UserNoteView */ = {
 			isa = PBXGroup;
 			children = (
-				DBC2AACA26B9B3E0001CCB9B /* UserNoteView.xib */,
+				DB000EE226BABA4E00343004 /* UserNoteView.xib */,
 				DBFD9EB526B6D6290080666E /* UserNoteView.swift */,
 			);
 			path = UserNoteView;
@@ -528,10 +528,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB4D4D8726B083A000643E37 /* LaunchScreen.storyboard in Resources */,
+				DB000EE326BABA4E00343004 /* UserNoteView.xib in Resources */,
 				DB4D4D8426B083A000643E37 /* Assets.xcassets in Resources */,
 				DB844D4726B6C48F00DA8A55 /* UserDetailsView.xib in Resources */,
 				DB844D1B26B68EB000DA8A55 /* UserProfileHeaderView.xib in Resources */,
-				DBC2AACB26B9B3E0001CCB9B /* UserNoteView.xib in Resources */,
 				DB4D4D7F26B0839900643E37 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
