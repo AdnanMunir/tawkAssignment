@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		DB000EE326BABA4E00343004 /* UserNoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB000EE226BABA4E00343004 /* UserNoteView.xib */; };
+		DB329ABC26C55A4E00079C1D /* NoInternetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB329ABB26C55A4E00079C1D /* NoInternetView.xib */; };
+		DB329AC026C55AD400079C1D /* NoInternetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB329ABF26C55AD400079C1D /* NoInternetView.swift */; };
+		DB329AC726C58B5400079C1D /* ReachibilitySwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB329AC626C58B5400079C1D /* ReachibilitySwift.swift */; };
 		DB4D4D7826B0839900643E37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4D4D7726B0839900643E37 /* AppDelegate.swift */; };
 		DB4D4D7A26B0839900643E37 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4D4D7926B0839900643E37 /* SceneDelegate.swift */; };
 		DB4D4D7F26B0839900643E37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB4D4D7D26B0839900643E37 /* Main.storyboard */; };
@@ -80,6 +83,9 @@
 
 /* Begin PBXFileReference section */
 		DB000EE226BABA4E00343004 /* UserNoteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserNoteView.xib; sourceTree = "<group>"; };
+		DB329ABB26C55A4E00079C1D /* NoInternetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoInternetView.xib; sourceTree = "<group>"; };
+		DB329ABF26C55AD400079C1D /* NoInternetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetView.swift; sourceTree = "<group>"; };
+		DB329AC626C58B5400079C1D /* ReachibilitySwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachibilitySwift.swift; sourceTree = "<group>"; };
 		DB4D4D7426B0839900643E37 /* tawk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tawk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB4D4D7726B0839900643E37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB4D4D7926B0839900643E37 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -162,6 +168,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB329ABA26C55A3800079C1D /* NoInternetView */ = {
+			isa = PBXGroup;
+			children = (
+				DB329ABB26C55A4E00079C1D /* NoInternetView.xib */,
+				DB329ABF26C55AD400079C1D /* NoInternetView.swift */,
+			);
+			path = NoInternetView;
+			sourceTree = "<group>";
+		};
 		DB4D4D6B26B0839800643E37 = {
 			isa = PBXGroup;
 			children = (
@@ -290,11 +305,13 @@
 		DB4D4DC226B088F800643E37 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				DB329ABA26C55A3800079C1D /* NoInternetView */,
 				DBC2AAF226B9D126001CCB9B /* Constants */,
 				DBC2AAEB26B9CE8C001CCB9B /* Managers */,
 				DBC2AAE826B9CE7A001CCB9B /* Extensions */,
 				DBC2AAF526B9D131001CCB9B /* AsyncOperationHelper */,
 				DBC2AAF826B9D13F001CCB9B /* CustomImageView */,
+				DB329AC626C58B5400079C1D /* ReachibilitySwift.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -527,6 +544,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB329ABC26C55A4E00079C1D /* NoInternetView.xib in Resources */,
 				DB4D4D8726B083A000643E37 /* LaunchScreen.storyboard in Resources */,
 				DB000EE326BABA4E00343004 /* UserNoteView.xib in Resources */,
 				DB4D4D8426B083A000643E37 /* Assets.xcassets in Resources */,
@@ -596,9 +614,11 @@
 				DB844D0626B6082600DA8A55 /* GetUsersOperationRequest.swift in Sources */,
 				DB61C6B726B4840F000B0794 /* Constants.swift in Sources */,
 				DB844D2D26B6A95300DA8A55 /* UserProfile.swift in Sources */,
+				DB329AC026C55AD400079C1D /* NoInternetView.swift in Sources */,
 				DB4D4E2A26B344F600643E37 /* UsersProtocol.swift in Sources */,
 				DB844D4A26B6C4B100DA8A55 /* UserDetailsView.swift in Sources */,
 				DBC2AAC126B9B089001CCB9B /* InvertedUserModel.swift in Sources */,
+				DB329AC726C58B5400079C1D /* ReachibilitySwift.swift in Sources */,
 				DB844D3426B6AFBE00DA8A55 /* UserProfileProtocol.swift in Sources */,
 				DB4D4D7A26B0839900643E37 /* SceneDelegate.swift in Sources */,
 				DB844D3126B6AF4700DA8A55 /* UserProfileService.swift in Sources */,
@@ -694,7 +714,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -749,7 +769,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

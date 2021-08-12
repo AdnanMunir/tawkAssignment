@@ -15,19 +15,17 @@ struct UserProfileService : UserProfileProtocol {
         fetchRequest.predicate = NSPredicate(format: "id == %i" ,request.userId)
         
         do {
-            let users = try CoreDataManager.sharedManager.persistentContainer.viewContext.fetch(fetchRequest) as? [User]
-            if let users = users, users.count > 0, let user = users.first  {
+            let user = CoreDataManager.sharedManager.backgroundContext.object(with: request.userId) as? User
+//            let users = try CoreDataManager.sharedManager.persistentContainer.viewContext.fetch(fetchRequest) as? [User]
+            if let user = user  {
                 user.note = request.userNote
-                CoreDataManager.sharedManager.saveContext()
+                
+                CoreDataManager.sharedManager.saveBackgroundContext()
                 completion(.success(true))
             }
             completion(.success(false))
             
-            } catch let error as NSError {
-              print("Could not fetch. \(error), \(error.userInfo)")
-                completion(.failure(.APIError))
-        }
-        
+            }
     }
     
 

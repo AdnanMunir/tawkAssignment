@@ -11,17 +11,18 @@ import UIKit
 
 class CoreDataManager {
   
-  //1
   static let sharedManager = CoreDataManager()
-  //2.
+    lazy var backgroundContext : NSManagedObjectContext = {
+        return persistentContainer.newBackgroundContext()
+    }()
+    
   private init() {} // Prevent clients from creating another instance.
   
-  //3
   lazy var persistentContainer: NSPersistentContainer = {
     
     let container = NSPersistentContainer(name: "tawk")
     
-    
+    container.viewContext.automaticallyMergesChangesFromParent = true
     container.loadPersistentStores(completionHandler: { (storeDescription, error) in
       
       if let error = error as NSError? {
@@ -33,6 +34,7 @@ class CoreDataManager {
   
   //4
   func saveContext () {
+//
     let context = CoreDataManager.sharedManager.persistentContainer.viewContext
     if context.hasChanges {
       do {
@@ -45,14 +47,14 @@ class CoreDataManager {
       }
     }
   }
-//    func executeRequest(request: NSFetchRequest<NSManagedObject>) -> Array<NSManagedObject> {
-//        var result : [NSManagedObject] = []
-//        do {
-//            result = try CoreDataManager.sharedManager.persistentContainer.viewContext.fetch(request)
-//            return request
-//            } catch let error as NSError {
-//              print("Could not fetch. \(error), \(error.userInfo)")
-//            }
-//    }
+    
+    func saveBackgroundContext() {
+        do {
+           try backgroundContext.save()
+        } catch {
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        }
+    }
 }
 

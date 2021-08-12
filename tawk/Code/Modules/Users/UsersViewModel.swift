@@ -15,6 +15,7 @@ final class UsersViewModel : UsersModeling {
     private var users : [User] = []
     private var searchUsers : [User] = []
     public var isSearchOn = false
+    private var lastSelectedUser : User?
     
     init(usersService : UsersProtocol) {
         self.usersService = usersService
@@ -33,6 +34,7 @@ final class UsersViewModel : UsersModeling {
     }
     
     func getUser(at index: Int) -> User {
+        lastSelectedUser = isSearchOn ? searchUsers[index] : users[index]
         return isSearchOn ? searchUsers[index] : users[index]
     }
     
@@ -64,6 +66,11 @@ final class UsersViewModel : UsersModeling {
     
     
     func searchUsers(with text: String) {
+        if text.count < 1 {
+            searchUsers = []
+            reloadView?()
+            return
+        }
         let request = SearchUsersRequest(searchText: text)
         usersService.searchUsers(request: request) {[weak self] (result) in
             switch result {

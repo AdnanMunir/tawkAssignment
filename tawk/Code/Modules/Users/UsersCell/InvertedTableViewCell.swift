@@ -19,7 +19,7 @@ class InvertedTableViewCell: UITableViewCell,UserCell {
         
         labelUserName.text = model.user.login
         labelDetails.text = "details"
-        
-        imageViewUser.downloadImage(url: model.user.avatarUrl ?? "", invertImage: true, placeHolderImage: "user_icon")
+        imageViewUser.userId = model.user.id
+        imageViewUser.downloadImage(url: model.user.avatarUrl ?? "",invertImage: true, placeHolderImage: "user_icon",userId: model.user.id)
     }
 }

@@ -10,8 +10,9 @@ import UIKit
 final class UsersViewController: UITableViewController {
    
     @IBOutlet weak var tableViewUsers: UITableView!
-    
+    let reachability = try! Reachability()
     var searchController: UISearchController!
+    var noInternetView : NoInternetView?
     
     var usersVM : UsersModeling! {
         didSet {
@@ -25,13 +26,13 @@ final class UsersViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addObservers()
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         navigationController?.setNavigationBarHidden(false, animated: true)
         setupSearchController()
         usersVM = UsersViewModel(usersService: UsersService())
         usersVM.viewDidLoad()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,6 +40,13 @@ final class UsersViewController: UITableViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
         tableView.reloadData()
     }
+    
+    private func addObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.addNoInternetView), name: Notification.Name("InternetNotAvailable"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.removeNoInternetView), name: Notification.Name("InternetAvailable"), object: nil)
+    }
+    
     
     /**
      Call this function to Configure Search Controller for displaying search results according to Username / Notes Text
@@ -52,6 +60,38 @@ final class UsersViewController: UITableViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchBar.delegate = self
         definesPresentationContext = true
+    }
+    
+    @objc func reachabilityChanged(note: Notification) {
+
+      let reachability = note.object as! Reachability
+
+      switch reachability.connection {
+      case .unavailable:
+        removeNoInternetView()
+      default:
+        addNoInternetView()
+      }
+    }
+    
+    @objc func addNoInternetView() {
+        DispatchQueue.main.async {
+            let theHeight = self.view.frame.size.height
+            if let _ = self.noInternetView {
+            return
+        }
+            self.noInternetView = NoInternetView(frame: CGRect(x: 0, y: theHeight - 80 , width: self.view.frame.width, height: 50))
+            self.view.window!.addSubview(self.noInternetView!);
+        }
+    }
+    
+    @objc private func removeNoInternetView() {
+        DispatchQueue.main.async {
+            if let _ = self.noInternetView {
+                self.noInternetView?.removeFromSuperview()
+                self.noInternetView = nil
+        }
+        }
     }
     
 }

@@ -6,12 +6,13 @@
 //
 
 import Foundation
+import CoreData
 
 struct SaveUserNoteRequest {
-    var userId : Int64
+    var userId : NSManagedObjectID
     var userNote : String
     
-    init(userId : Int64 = 0, userNote : String = "" ) {
+    init(userId : NSManagedObjectID , userNote : String = "" ) {
         self.userId = userId
         self.userNote = userNote
     }

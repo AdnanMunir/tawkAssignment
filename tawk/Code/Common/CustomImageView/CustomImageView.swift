@@ -10,40 +10,42 @@ import UIKit
 class CustomImageView: UIImageView {
 
     var downloadOperation : GetImageOperation!
-    
+    var userId : Int64 = 0
     var avatarURL  : String! = nil
     
-    func downloadImage(url : String, invertImage : Bool = false, placeHolderImage : String) {
-        image = UIImage(named: placeHolderImage)
+    func downloadImage(url : String, invertImage : Bool = false, placeHolderImage : String, userId : Int64 = 0) {
+       
         guard let imageURL = URL(string:url) else {
             return
         }
         
         if downloadOperation != nil {
             downloadOperation.cancel()
+            downloadOperation = nil
         }
         
         let cache = URLCache.shared
-        let request = URLRequest(url: imageURL, timeoutInterval: 30)
+        let request = URLRequest(url: imageURL, timeoutInterval: 60)
 
         if let data = cache.cachedResponse(for: request)?.data, let newImage = UIImage(data: data) {
             self.transition(toImage: newImage, invertColor: invertImage)
         } else {
             let operationRequest = GetImageOperationRequest(imageUrl: request)
             let response = GetImageOperationResponse()
-            
+            image = UIImage(named: placeHolderImage)
             downloadOperation = GetImageOperation(getImageRequest: operationRequest, getImageResponse: response)
             
             downloadOperation.completionBlock = { [weak self] in
                 switch response.state {
                 case .success(let data,let response,let imgRequest):
+                    if self?.userId == userId {
                     let cachedData = CachedURLResponse(response: response, data: data)
                     cache.storeCachedResponse(cachedData, for: imgRequest)
 
                     DispatchQueue.main.async {
                         let downloadedImage = UIImage(data: data)
                         self?.transition(toImage: downloadedImage, invertColor: invertImage)
-                    }
+                    }}
                     break
                 case .failure(_):
                     break

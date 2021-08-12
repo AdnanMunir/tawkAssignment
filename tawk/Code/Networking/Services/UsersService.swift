@@ -9,10 +9,10 @@ import Foundation
 import CoreData
 
 struct UsersService : UsersProtocol {
+    
     func searchUsers(request: SearchUsersRequest, completion: @escaping (Result<[User], NetworkError>) -> Void) {
         searchUsersFromLocalStorage(request: request, completion: completion)
     }
-    
     
     func getUsers(request: GetUsersRequest, completion: @escaping (Result<[User], NetworkError>) -> Void) {
         
@@ -33,7 +33,7 @@ struct UsersService : UsersProtocol {
     
     private func searchUsersFromLocalStorage(request: SearchUsersRequest, completion: @escaping (Result<[User], NetworkError>) -> Void) {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "User")
-        fetchRequest.predicate = NSPredicate(format: "login CONTAINS[cd] %@ or login == %@" ,request.searchText,request.searchText)
+        fetchRequest.predicate = NSPredicate(format: "login CONTAINS[cd] %@ or login == %@ or note CONTAINS[cd] %@ or note == %@"  ,request.searchText,request.searchText,request.searchText,request.searchText)
         fetchRequest.fetchLimit = 20
         
         do {

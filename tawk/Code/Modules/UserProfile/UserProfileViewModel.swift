@@ -34,7 +34,7 @@ class UserProfileViewModel: UserProfileModeling {
     }
     
     func saveUserNote(note: String) {
-        let request = SaveUserNoteRequest(userId: user.id, userNote: note)
+        let request = SaveUserNoteRequest(userId: user.objectID, userNote: note)
         profileService.saveUserNote(request: request) { (result) in
             switch result {
             case .success(_):
